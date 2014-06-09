@@ -10,6 +10,7 @@
   p{margin:0;}
   img{width:250px;margin:10px 0 0;}
   pre{width:230px;background:#def;margin:10px 0 0;padding:10px;}
+  button{width:270px;margin:10px 0 0;}
 </style>
 <h1>Codegolf JS news</h1>
 <table border>
@@ -22,11 +23,11 @@
     <td id=challenges_td>
     <td id=tips_td>
 </table>
-<script src=projects.json></script>
-<script src=challenges.json></script>
-<script src=tips.json></script>
+<script src=projects.js></script>
+<script src=challenges.js></script>
+<script src=tips.js></script>
 <script>
-html = "";
+html = "<button onclick=window.location='https://github.com/codegolf/codegolf.github.io/edit/master/projects.js'>Add a project</button>";
 for(i in projects){
   html += "<div onclick=window.location='" + projects[i].url + "'>";
   html += "<h3>" + projects[i].name + "</h3>";
@@ -37,7 +38,7 @@ for(i in projects){
 }
 projects_td.innerHTML=html;
 
-html = "";
+html = "<button onclick=window.location='https://github.com/codegolf/codegolf.github.io/edit/master/challenges.js'>Add a challenge</button>";
 for(i in challenges){
   html += "<div onclick=window.location='" + challenges[i].url + "'>";
   html += "<h3>" + challenges[i].name + "</h3>";
@@ -47,7 +48,7 @@ for(i in challenges){
 }
 challenges_td.innerHTML=html;
 
-html = "";
+html = "<button onclick=window.location='https://github.com/codegolf/codegolf.github.io/edit/master/tips.js'>Add a tip</button>";
 for(i in tips){
   html += "<div>";
   html += "<p><b>" + tips[i].description + "</b></p>";
