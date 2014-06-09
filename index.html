@@ -1,0 +1,59 @@
+<!doctype html>
+<meta charset=utf-8>
+<style>
+  body{text-align:center;font-family:calibri;background:#beb;font-size:12px;}
+  table{width:900px;table-layout:fixed;border-collapse:collapse;margin:auto; background:#fff;}
+  th{background:#dfd;font-size:20px;}
+  div{margin:10px;border:1px solid;text-align:left;padding:10px;cursor:pointer;background:#fff;}
+  td{vertical-align:top;background:#efe;}
+  h3{font-size:16px;margin:0;}
+  p{margin:0;}
+  img{width:250px;margin:10px 0 0;}
+  pre{width:230px;background:#def;margin:10px 0 0;padding:10px;}
+</style>
+<h1>Codegolf JS news</h1>
+<table border>
+  <tr>
+    <th>Projects
+    <th>Challenges
+    <th>Tips & Tricks
+  <tr>
+    <td id=projects_td>
+    <td id=challenges_td>
+    <td id=tips_td>
+</table>
+<script src=projects.json></script>
+<script src=challenges.json></script>
+<script src=tips.json></script>
+<script>
+html = "";
+for(i in projects){
+  html += "<div onclick=window.location='" + projects[i].url + "'>";
+  html += "<h3>" + projects[i].name + "</h3>";
+  html += "<i>" + projects[i].author + " - " + projects[i].date + " - " + projects[i].size + "</i>";
+  html += "<p>" + projects[i].description + "</p>";
+  html += "<img src=" + projects[i].screenshot + ">";
+  html += "</div>";
+}
+projects_td.innerHTML=html;
+
+html = "";
+for(i in challenges){
+  html += "<div onclick=window.location='" + challenges[i].url + "'>";
+  html += "<h3>" + challenges[i].name + "</h3>";
+  html += "<i>" + challenges[i].author + " - " + challenges[i].date + "</i>";
+  html += "<p>" + challenges[i].description + "</p>";
+  html += "</div>";
+}
+challenges_td.innerHTML=html;
+
+html = "";
+for(i in tips){
+  html += "<div>";
+  html += "<p><b>" + tips[i].description + "</b></p>";
+  html += "<i>" + tips[i].author + " - " + tips[i].date + "</i>";
+  html += "<pre>" + tips[i].source + "</pre>";
+  html += "</div>";
+}
+tips_td.innerHTML=html;
+</script>
